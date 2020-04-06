@@ -319,7 +319,7 @@ def scale_bubble(bubble, p, cam):
     scaled_rad = scale_rad(dist)
     scale_factor = scaled_rad/rad
     if scale_factor < np.inf:
-        new_dim = int(bs*scale_factor)
+        new_dim = int(bs*scale_factor*0.9)
         resized_bub = cv2.resize(bubble.copy(), (new_dim, new_dim))
         _, resized_bub = cv2.threshold(resized_bub, 50, 255, cv2.THRESH_BINARY)
     else:
