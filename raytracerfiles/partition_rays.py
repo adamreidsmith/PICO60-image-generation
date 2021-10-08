@@ -4,9 +4,14 @@ import numpy as np
 import os
 
 '''
-Propagates rays through the PICO-60 geometry. The jar volume is then partitioned into 3x3x3 cm boxes, and files containing all rays passing through each box are saved in the folder './partitions'.  The files can be read using pickle.load, and each contain a dictionary with the ray index as the key and the start and end points of the ray as values.
+This code propagates rays through the PICO-60 geometry. The jar volume is partitioned into 3x3x3 cm boxes, 
+and files containing all rays passing through each box are saved in the folder './partitions'.  The 
+files can be read using pickle.load, and each contain a dictionary with the ray index as the key and 
+the start and end points of the ray as values.
 
-This should be run before running generate_event.py to create the necessary files.  Note that this code runs the matlab files FitPICO60Geometry.m and GetRaysAndPixels.m which requires the Matlab Engine API to be installed.
+This should be run before running generate_event.py to create the necessary files.  Note that this 
+code runs the matlab files FitPICO60Geometry.m and GetRaysAndPixels.m which requires the Matlab Engine 
+API to be installed.
 '''
 
 # If fit parameters are saved, load them. Otherwise, compute them.
