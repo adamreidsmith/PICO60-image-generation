@@ -101,25 +101,21 @@ del ray_startingpoints
 def generate_points(n, r1, r2, r3, cyl_axis, z, d):
     # Returns an n-by-3 array of random points within the detector geometry
     
+    rand_point = lambda: [box[0]*np.random.rand() -  box[0]/2 + box_center[0],
+                          box[1]*np.random.rand() -  box[1]/2 + box_center[1],
+                          box[2]*np.random.rand() -  box[2]/2 + box_center[2]]
+    
     if n == 1:
-        p = [box[0]*np.random.rand() -  box[0]/2 + box_center[0],
-             box[1]*np.random.rand() -  box[1]/2 + box_center[1],
-             box[2]*np.random.rand() -  box[2]/2 + box_center[2]]
+        p = rand_point()
         while not injar(p, r1, r2, r3, cyl_axis, z, d):
-            p = [box[0]*np.random.rand() -  box[0]/2 + box_center[0],
-                 box[1]*np.random.rand() -  box[1]/2 + box_center[1],
-                 box[2]*np.random.rand() -  box[2]/2 + box_center[2]]
+            p = rand_point()
         return np.array(p)
     
     pts = np.zeros([n,3])
     for i in range(n):
-        p = [box[0]*np.random.rand() -  box[0]/2 + box_center[0],
-             box[1]*np.random.rand() -  box[1]/2 + box_center[1],
-             box[2]*np.random.rand() -  box[2]/2 + box_center[2]]
+        p = rand_point()
         while not injar(p, r1, r2, r3, cyl_axis, z, d):
-            p = [box[0]*np.random.rand() -  box[0]/2 + box_center[0],
-                 box[1]*np.random.rand() -  box[1]/2 + box_center[1],
-                 box[2]*np.random.rand() -  box[2]/2 + box_center[2]]
+            p = rand_point()
         pts[i] = p
     return pts
     
