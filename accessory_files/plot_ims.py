@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
-import ks2d
+#import ks2d
 
 data24_file = './data/pix_pos_rad_dict24.pkl'
 data33_file = './data/pix_pos_rad_dict33.pkl'
